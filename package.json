@@ -24,7 +24,7 @@
     },
     "homepage": "https://github.com/black-meomeo/nodejs_blog#readme",
     "lint-staged": {
-      "\"./**/*.{js,jsx,ts,tsx,json,scss}\"": "prettier --write --single-quote --tab-width 4 --trailing-comma all"
+      "./**/*.{js,jsx,ts,tsx,json,scss}": "prettier --write --single-quote --tab-width 4 --trailing-comma all"
     },
     "husky": {
       "hooks": {
