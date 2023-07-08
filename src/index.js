@@ -13,7 +13,7 @@ app.use(morgan('combined'));
 
 // template engine
 app.engine('handlebars', engine.engine());
-    app.set('view        engine', 'handlebars');
+    app.set('view engine', 'handlebars');
    app.set('views', path.join(__dirname, 'resources/views'));
 
 // router init
@@ -22,4 +22,4 @@ app.engine('handlebars', engine.engine());
         app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });
-
+// hahahaha
