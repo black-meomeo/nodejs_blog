@@ -13,12 +13,12 @@ app.use(morgan('combined'));
 
 // template engine
 app.engine('handlebars', engine.engine());
-app.set('view engine', 'handlebars');
-app.set('views', path.join(__dirname, 'resources/views'));
+app.set('view        engine', 'handlebars');
+   app.set('views', path.join(__dirname, 'resources/views'));
 
 // router init
 route(app);
 
-app.listen(port, () => {
+        app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });
