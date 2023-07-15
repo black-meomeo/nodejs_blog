@@ -1,19 +1,17 @@
 const newRouter = require('./news');
+const siteRouter = require('./site');
+const skillsRouter = require('./skills');
 
 function route(app) {
-    app.get('/', (req, res) => {
-        res.render('home');
-    });
-
-    //   app.get('/new', (req, res) => {
-    //     res.render('news');
-    //   })
-
     app.use('/news', newRouter);
 
-    app.get('/search', (req, res) => {
-        res.render('search');
-    });
+    app.use('/:slug', skillsRouter);
+
+    // app.use('/skills/giat-quan-ao', skillsRouter);
+
+    app.use('/', siteRouter);
+
+    app.use('/search', siteRouter);
 }
 
 module.exports = route;

@@ -4,7 +4,11 @@ const morgan = require('morgan');
 const engine = require('express-handlebars');
 const app = express();
 const route = require('./routes');
+const db = require('./config/db');
 const port = 3000;
+
+// connect db
+db.connect();
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -15,11 +19,18 @@ app.use(morgan('combined'));
 app.engine('handlebars', engine.engine());
 app.set('view engine', 'handlebars');
 
-app.set('views', path.join(__dirname, 'resources/views'));
+app.set('views', path.join(__dirname, 'resources', 'views'));
+
+app.use(
+    express.urlencoded({
+        extended: true,
+    }),
+);
+app.use(express.json());
 
 // router init
 route(app);
 
-pp.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+app.listen(port, () => {
+    console.log(`App listening on port ${port}`);
 });
